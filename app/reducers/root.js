@@ -1,6 +1,9 @@
 import { combineReducers} from 'redux';
 
-const reducers= combineReducers({
+// Import Reducers
+import policies from './policies';
 
+const reducers= combineReducers({
+    policies: policies
 });
 export default reducers;

@@ -6,16 +6,28 @@ import {Text,Button,Icon} from 'native-base';
 
 
 import Home from './containers/views/Home'
-//import Home from './containers/views/Policies'
+import Policies from './containers/views/Policies'
+
 const Routes = function(){
     return(
         <Router>
             <Modal>
                 <Scene key='root' hideNavBar={true}>
-                    <Scene key='home' component={Home}/>
-                    <Scene key='policies' component={Policies}/>
+                    
+
+                    <Tabs key="homeTabs" hideNavBar={true}>
+                        <Scene key='home' component={Home} title="Home" tabBarTitle="Home"/>
+                        <Scene key='policies' component={Policies} title="Policies" tabBarTitle="Policies"/>
+                    </Tabs>
+
                 </Scene>
+
+                <Scene key="order" component={Home} />
+
+                <Scene key="checkout" component={Policies} />
             </Modal>
         </Router>
     )
 }
+
+export default Routes;

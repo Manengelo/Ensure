@@ -1,19 +1,19 @@
 import {Platform} from 'react-native';
-import {createStore,applyMiddleWare,compose} from 'redux';
-//import devToolEnhancer from 'remote-redux-devTools';
+import {createStore,applyMiddleware,compose} from 'redux';
+import devToolEnhancer from 'remote-redux-devtools';
 import thunk from 'redux-thunk';
 
 import reducers from './reducers/root';
 
 const store= createStore(
    reducers,
-    //compose(
-      // applyMiddleWare(thunk),
-       // devToolEnhancer({
-         //   realtime:true,
-           // name:Platform.OS,
-            //suppressConnectionErrors:false
-        //})
-   //)
+    compose(
+      applyMiddleware(thunk),
+       devToolEnhancer({
+           realtime:true,
+           name:Platform.OS,
+            suppressConnectionErrors:false
+        })
+   )
 );
 export default store;
